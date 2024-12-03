@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GPS Tracker</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADy_ICv76T9DSsLQQPsXDmsN-IV2TV73k&callback=initMap"></script>
+  <script>
+    async function fetchLocation() {
+      const response = await fetch("http://localhost:5000/latest-location");
+      const data = await response.json();
+      if (data.latitude && data.longitude) {
+        return { lat: parseFloat(data.latitude), lng: parseFloat(data.longitude) };
+      }
+      throw new Error("No location data available");
+    }
+
+    async function initMap() {
+      try {
+        const location = await fetchLocation();
+
+        // Initialize Google Map
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: location,
+        });
+
+        // Place marker at the latest location
+        new google.maps.Marker({
+          position: location,
+          map: map,
+        });
+      } catch (error) {
+        console.error(error);
+        alert("Failed to fetch location data.");
+      }
+    }
+  </script>
+</head>
+<body onload="initMap()">
+  <h3>Live GPS Location</h3>
+  <div id="map" style="height: 500px; width: 100%;"></div>
+</body>
+</html>
