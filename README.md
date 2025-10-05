@@ -155,7 +155,7 @@ setInterval(fetchLocation, 5000); // Update every 5 seconds
 
 The backend provides a REST API that the frontend polls periodically. The GPS coordinates are visualized on Google Maps:
 
-![Google Maps Output](https://github.com/Jyothi-CY/GPS-Tracker/Images/GPS Location.jpg)
+![Google Maps Output](https://github.com/Jyothi-CY/GPS-Tracker/blob/IoT/Images/GPS%20Location.jpg)
 
 ---
 
