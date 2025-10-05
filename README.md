@@ -103,7 +103,7 @@ app.get('/latest-location', (req, res) => {
 
 ### Related Images
 
-![Setup & Images](https://github.com/Jyothi-CY/GPS-Tracker/Images)
+![Setup & Images](https://github.com/Jyothi-CY/GPS-Tracker/tree/IoT/Images)
 
 ---
 
